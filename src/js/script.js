@@ -117,34 +117,71 @@ btnClose.addEventListener('click',function(e){
 
 
 //Поэкранный скролл
-
+let infoSection = document.querySelector('.info-section');
 $(function() {
   $.scrollify({
     section : ".scroll-page",
-    // sectionName : "section-name",
-    // interstitialSection : "",
     easing: "easeOutExpo",
-    // scrollSpeed: 600,
-    // offset : 0,
-    // scrollbars: true,
-    // standardScrollElements: "",
+    scrollSpeed: 1000,
     setHeights: false,
-    // overflowScroll: false,
-    // updateHash: true,
-    // touchScroll:true,
-    // before:function() {},
-    // after:function() {},
-    // afterResize:function() {},
-    // afterRender:function() {}
   });
 });
+//добавление класса при скролле
+$(window).scroll(function() {
+  var height = $(window).scrollTop();
+  
+//        /*Если сделали скролл на 100px задаём новый класс*/
+  if(height > 100){
+  $('.info-section').addClass('info-section-active');
+  } 
+  else{
+       /*Если меньше  удаляем класс */
+  $('.info-section').removeClass('info-section-active');
+  }
+    if(height>600){
+      $('.info-section').removeClass('info-section-active')
+      
+    }
+      //прячем play при прокрутки первого экрана
+      if(height>100){
+        $('.btn-play-wrapper-header').addClass('hiden-play')
+        
+      }else{
+        $('.btn-play-wrapper-header').removeClass('hiden-play')
+      }
+      //фиксируем меню , на момент поднятие блока
+      if(height>100){
+        $('.header-wrapper').addClass('fixed-menu')
+      }
+      else{
+        $('.header-wrapper').removeClass('fixed-menu')
+      }
 
+      //скрываем главный title на момент прокрутки
+      if(height>100){
+        $('.header-title').addClass('hiden-title')
+      }
+      else{
+        $('.header-title').removeClass('hiden-title')
+      }
+      //покзываем текст
+      if(height>100){
+        $('.info-title , .info-subtitle').addClass('info-hiden')
+      }
+      else{
+        $('.info-title ,.info-subtitle').removeClass('info-hiden')
+      }
+  });
+
+
+  
+
+//swiper slider
 swiperContent.on('slideChange',function(){
   let sliderIndex = swiperContent.realIndex;
   let lineAll = document.querySelectorAll('.verical-line');
   
   lineAll.forEach(elem =>{
-      // console.log(elem.dataset.id)
       let elemId = elem.dataset.line
       if(sliderIndex == elemId){
           elem.classList.add('line-active')
@@ -160,10 +197,7 @@ swiperContent2.on('slideChange',function(){
   console.log(sliderIndex)
   let lineAll = document.querySelectorAll('.verical-line');
 
-  // console.log(lineAll)
-  // lineAll.forEach(elem =>{
-  //   console.log(elem.dataset.lin)
-  // console.log('fdfdfd')
+
   lineAll.forEach(elem =>{
         // console.log(elem.dataset.id)
         let elemId = elem.dataset.lin
@@ -176,19 +210,6 @@ swiperContent2.on('slideChange',function(){
         }
     })
   })
-  // console.log(sliderIndex)
-  // lineAll.forEach(elem =>{
-  //     // console.log(elem.dataset.id)
-  //     let elemId = elem.dataset.lineT
-  //     console.log(elemId)
-  //     if(sliderIndex == elemId){
-  //         elem.classList.add('line-active')
-  //     }
-  //     else{
-  //         elem.classList.remove('line-active')
-  //     }
-  // })
-// })
 
 
 //new
@@ -206,7 +227,11 @@ currentPlayBtnAll.forEach(elem =>{
     //если они совпадают добавляем класс
     videoAllHiden.forEach(vHiden =>{
       if(vHiden.classList.contains(dataBtn)){
-        console.log('yes')
+        //скрывае надпись scroll
+        let scroll = document.querySelectorAll('.scroll');
+        scroll.forEach(elem =>{
+          elem.style.zIndex ="-1"
+        })
         vHiden.classList.add('video-bg-active')
         //запрещаем скролл
         body.classList.add('no-scroll')
@@ -242,6 +267,11 @@ btnCloseVideoAll.forEach(elem =>{
         hidenPlaybtnAll.forEach(elem =>{
           elem.classList.remove('hiden-btn-video')
         })
+         //показываем надпись scroll
+         let scroll = document.querySelectorAll('.scroll');
+         scroll.forEach(elem =>{
+           elem.style.zIndex ="4"
+         })
       }
     })
   })
@@ -267,13 +297,3 @@ btnPlayVideo2.forEach(el =>{
     })
   })
 })
-// header.addEventListener('click',function(){
- 
-//   videoHiden.classList.add('video-bg-active')
-
-//   let headerVideo = videoHiden.querySelector('.header-video')
-//   headerVideo.classList.add('header-video-active')
-//   body.classList.add('no-scroll')
-//   headerVideo.play()
-  
-// })
