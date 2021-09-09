@@ -1225,6 +1225,8 @@ footer {
   display: flex;
   justify-content: center;
   span{
+    font-family: var(--fHalisThin-font-family);
+    font-weight: 700;
     position: relative;
     display: inline-block;
     margin-left: 15px;
@@ -1696,8 +1698,21 @@ text-align: center;
 }
 .payment-arrow{
   position: absolute;
-  right: -23px;
+  right: 0px;
   bottom: 157px;
+  .scroll{
+    p{
+      color: #4c4a4a;
+      font-weight: 700;
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.5;
+      padding-left: 8px;
+    }
+  }
+  .img-scroll{
+    fill:#4c4a4a ;
+  }
 }
 .form-privacy-title{
   font-size: 40px;

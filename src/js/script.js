@@ -360,7 +360,7 @@ paymentScrolRight.addEventListener('scroll',function(){
     }
     })
   }
-  if(formAdressDistance <= -600){
+  if(formAdressDistance <= -800){
     // console.log('da')
     stepAll.forEach((elem,index)=>{
      //  console.log(elem,index)
@@ -374,7 +374,7 @@ paymentScrolRight.addEventListener('scroll',function(){
      }
      })
    }
-   if(formAdressDistance >= -600){
+   if(formAdressDistance >= -800){
     // console.log('da')
     stepAll.forEach((elem,index)=>{
      //  console.log(elem,index)
