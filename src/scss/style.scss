@@ -1571,8 +1571,8 @@ text-align: center;
   .custom-checkbox+label::before {
     content: '';
     display: inline-block;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     flex-shrink: 0;
     flex-grow: 0;
     border: 1px solid #B2B2B2;
@@ -1626,6 +1626,14 @@ text-align: center;
 .value{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+.value-item-btn{
+  width: 100%;
+}
+.btn-value{
+  padding:10px 50px;
+  cursor: pointer;
 }
 .form-subtitle{
   margin-bottom: 45px;
@@ -1662,6 +1670,8 @@ text-align: center;
 
 }
 .payment-line-text{
+  opacity: 0;
+
   position: absolute;
   top: 98px;
   right: 39px;
@@ -1676,6 +1686,9 @@ text-align: center;
     right: -39px;
     top: 8px;
   }
+}
+.active-step{
+  opacity: 1;
 }
 .img-arrow-payment{
   width: 45px;
