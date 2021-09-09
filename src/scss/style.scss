@@ -1220,7 +1220,10 @@ footer {
 .payment-logo-color{
   font-family: var(--fYantramanav-font-family);
   font-weight: 200;
- margin-bottom: 40px;
+  margin-bottom: 40px;
+
+  display: flex;
+  justify-content: center;
   span{
     position: relative;
     display: inline-block;
@@ -1228,6 +1231,9 @@ footer {
     margin-right: 15px;
     text-align: center;
     color: #7D7D7C;
+    width: 45px;
+    display: flex;
+    justify-content: center;
     &:before{
       content: '';
       position: absolute;
@@ -1235,7 +1241,7 @@ footer {
       height: 5px;
       background-color:var(--black-color);
       top: -30px;
-      left: -4px;
+      // left: -4px;
       }
       &:nth-of-type(2):before{
         background-color:var(--white-color);
@@ -1260,7 +1266,11 @@ footer {
 }
 
 .payment-cabinet-item{
+  position: relative;
   width: 50%;
+}
+.test-wrapper{
+  position: relative;
 }
 .payment-logo{
 text-align: center;
@@ -1385,17 +1395,17 @@ text-align: center;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
 	// border-radius: .5em;
-	-moz-appearance: none;
-	-webkit-appearance: none;
+
 	appearance: none;
 	background-color: rgb(253, 253, 253);
-	background-image: url('../images/sprite.svg#tr'),
-	  linear-gradient(to bottom, #EAEAEA 0%,#EAEAEA 100%);
-	background-repeat: no-repeat, repeat;
-	background-position: right .7em top 50%, 0 0;
-	// background-size: .65em auto, 100%;
-  background-size: 10% 50%;
+	// background: url('../images/sprite.svg#tr') no-repeat right;
 
+  background: url('../images/trtest.png') no-repeat right;
+  background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .99em auto, 100%;
+  // background-size: 20% 20%;
+  // linear-gradient(to bottom, #EAEAEA 0%,#EAEAEA 100%)
 }
 .select-css::-ms-expand {
 	display: none;
@@ -1452,17 +1462,7 @@ text-align: center;
   font-size: 14px;
   transform: rotate(180deg);
 }
-.payment-btn{
-  width: 330px;
-  padding: 14px 0;
-  background-color:#500E10 ;
-  border: none;
-  color: var(--white-color);
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 66px;
-  font-size: 20px;
-}
+
 .payment-item-scroll{
   overflow-y: scroll;
   height: 90vh;
@@ -1583,7 +1583,7 @@ text-align: center;
     background-size: 50% 50%;
     background-color: var(--white-color);
     margin-right: 40px;
-    box-shadow: 0px 0px 28px 7px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
   }
   /* стили при наведении курсора на checkbox */
   .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
@@ -1632,10 +1632,18 @@ text-align: center;
 }
 .value-item{
   text-align: center;
- 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .label-chacked::before{
+    margin-right: 0;
+  }
 }
 .value-item-text{
-  padding-top: 40px;
+  padding-top: 20px;
+}
+.label-payment{
+  margin-top: 20px;
 }
 .payment-info{
   margin-bottom: 90px;
@@ -1655,8 +1663,8 @@ text-align: center;
 }
 .payment-line-text{
   position: absolute;
-  right: 40px;
-  bottom: 245px;
+  top: 98px;
+  right: 39px;
   color: #4C4A4A;
   // position: relative;
   &::before{
@@ -2156,9 +2164,7 @@ margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
 }
-.payment-btn{
-  width: 300px;
-}
+
 .payment-arrow{
   bottom: 65px;
 }

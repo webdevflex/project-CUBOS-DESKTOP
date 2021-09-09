@@ -1,3 +1,4 @@
+// const { lastRun } = require("gulp");
 
 //swiper slider kaljan
 const swiper = new Swiper('.buy-kaljan-container', {
@@ -83,17 +84,17 @@ let videoHiden =document.querySelector('.video-bg-hiden')
 
 
 
-let btnClose = document.querySelector('.btn-close');
+// let btnClose = document.querySelector('.btn-close');
 
-btnClose.addEventListener('click',function(e){
-  console.log('klick')
-  e.stopPropagation()
-  if(videoHiden.classList.contains('video-bg-active')){
-    videoHiden.classList.remove('video-bg-active')
-  } 
-  videoHiden.classList.remove('video-bg-active')
-  body.classList.remove('no-scroll')
-})
+// btnClose.addEventListener('click',function(e){
+ 
+//   e.stopPropagation()
+//   if(videoHiden.classList.contains('video-bg-active')){
+//     videoHiden.classList.remove('video-bg-active')
+//   } 
+//   videoHiden.classList.remove('video-bg-active')
+//   body.classList.remove('no-scroll')
+// })
 
 
 //запускалось видео при клике на само автоВидео
@@ -129,7 +130,7 @@ $(function() {
 //добавление класса при скролле
 $(window).scroll(function() {
   var height = $(window).scrollTop();
-  
+  console.log(height)
 //        /*Если сделали скролл на 100px задаём новый класс*/
   if(height > 100){
   $('.info-section').addClass('info-section-active');
@@ -171,9 +172,17 @@ $(window).scroll(function() {
       else{
         $('.info-title ,.info-subtitle').removeClass('info-hiden')
       }
+
+      
+      
+      
   });
 
 
+ 
+      $('.payment-item-scroll').addClass('vcvc')
+    
+ 
   
 
 //swiper slider
@@ -297,3 +306,34 @@ btnPlayVideo2.forEach(el =>{
     })
   })
 })
+
+
+//скрол до элемента 
+// window.addEventListener('scroll',function(){
+//   let scrolDistance = window.scrollY
+//   console.log(scrolDistance)
+// })
+
+let paymentScrolRight = document.querySelector('.payment-item-scroll');
+let formAdress = document.querySelector('.form-adress')
+// console.log(objDiv.scrollTop = objDiv.scrollHeight) 
+// paymentScrolRight.addEventListener('scroll',function(){
+
+//       let formAdresDistance = formAdress.offsetTop
+//       console.log(formAdresDistance)
+//   // let scrolDistance = addres.scrollY
+//   // console.log(scrolDistance)
+// })
+// function offset(formAdress) {
+ 
+paymentScrolRight.addEventListener('scroll',function(){
+  const formAdressDistance= offset(formAdress).top;
+  console.log(myBlockScroll)
+});
+
+function offset(el) {
+  var rect = el.getBoundingClientRect(),
+  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+}
