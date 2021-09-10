@@ -386,6 +386,15 @@ paymentScrolRight.addEventListener('scroll',function(){
      
      })
    }
+   if(formAdressDistance <=-800){
+     let scrolDown = document.querySelector('.scroll');
+     scrolDown.classList.add('hiden-scroll')
+   }
+   if(formAdressDistance >=-700){
+    let scrolDown = document.querySelector('.scroll');
+    scrolDown.classList.remove('hiden-scroll')
+  }
+
   console.log(formAdressDistance)
 });
 
@@ -395,6 +404,30 @@ function offset(el) {
   scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
-// let step =document.querySelector('.payment-line-text')
-// const nextActive = step.nextElementSibling
-// console.log(nextActive)
+
+
+//payment btn videobg
+//получили все видео
+let paymentVideoAll = document.querySelectorAll('.payment-video');
+//получили все кнопки
+let btnPaymentAll = document.querySelectorAll('.btn-color');
+
+//по клику узнаем дата
+btnPaymentAll.forEach(elem => {
+  elem.addEventListener('click', function(){
+    //получили дата
+    let btnPaymentId = elem.dataset.paymentVideo
+    console.log(btnPaymentId)
+    
+    //проверка если у елемента есть класс такойже как атрибут  
+    paymentVideoAll.forEach(elem =>{
+      elem.classList.add('payment-video-hiden')
+      if(elem.classList.contains(btnPaymentId)){
+        elem.classList.remove('payment-video-hiden')
+       
+      }
+     
+    })
+    
+  })
+})

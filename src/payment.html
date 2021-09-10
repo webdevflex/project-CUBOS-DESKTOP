@@ -42,19 +42,33 @@
             <div class="payment-logo">
               <div class="payment-logo-title">sosuda</div>
               <div class="payment-logo-subtitle">collection</div>
-              <div class="payment-logo-color">
-                <span>black</span>
-                <span>white</span>
-                <span>red</span>
+              <div class="payment-logo-btn-wrapper">
+                <button data-payment-video ="video-bg1" class="btn-color">black</button>
+                <button data-payment-video ="video-bg2" class="btn-color">white</button>
+                <button data-payment-video ="video-bg3" class="btn-color">red</button>
               </div>
               <p class="payment-logo-text">
                 choose a color
               </p>
             
             </div>
-            <div class="payment-img">
-              <img class="payment-bg" src="images/bg-cabinet+ph.png" alt="">
-            </div>
+            <div class="payment-video-bg">
+              <!-- <img class="payment-bg" src="images/bg-cabinet+ph.png" alt=""> -->
+               
+                          <video class="payment-video video-bg1" muted autoplay loop>
+                              <source src="Hookans-blue-convert-mini.mp4 " type="video/mp4">
+                              <source src="example" type="video/webm">
+                          </video>
+                          <video class="payment-video video-bg2 payment-video-hiden" muted autoplay loop>
+                            <source src="header-bg.mp4" type="video/mp4">
+                            <source src="example" type="video/webm">
+                        </video>
+                        <video class="payment-video video-bg3 payment-video-hiden" muted autoplay loop>
+                          <source src="Hookans-red-convert-mini.mp4" type="video/mp4">
+                          <source src="example" type="video/webm">
+                      </video>
+                      </div>
+           
             <p class="payment-line-text active-step">step 1</p>
             <p class="payment-line-text">step 2</p>
             <p class="payment-line-text">step 3</p>
